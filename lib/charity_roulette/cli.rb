@@ -41,7 +41,7 @@ class CharityRoulette::CLI
         input = nil
         unless input == "exit"
         input = gets.strip.downcase
-        unless input.is_a?(Integer) or input.to_i > 0 or input.nil?
+        unless input.is_a?(Integer) or input.to_i >= 0 or input.nil?
             puts "Input should be a number greater than or equal to 0"
         end
         if input.nil?
@@ -72,7 +72,7 @@ class CharityRoulette::CLI
       end
 
       def range
-        puts rand(@@min.to_i..@@max.to_i)
+        puts "$#{rand(@@min.to_i..@@max.to_i)}"
       end
 
     

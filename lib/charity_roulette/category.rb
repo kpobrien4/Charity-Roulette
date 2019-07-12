@@ -8,7 +8,7 @@ class CharityRoulette::Category
         doc.search(".category.clearfix.list-url-discover div.cat-box").each do |div| 
         category = self.new
         category.name = div.search("h3").text
-        category.url = div.search("h3").search("href")
+        category.url = "https://www.charitynavigator.org/#{div.search("a").attr("href").value}"
         category.save
         end
     end
