@@ -4,6 +4,8 @@ class CharityRoulette::CLI
         CharityRoulette::Category.scrape_categories
         list_categories
         menu
+        list_subcategories
+        menu_2
         minimum_value
         maximum_value
         range
@@ -35,6 +37,30 @@ class CharityRoulette::CLI
         end
       end
 
+      def list_subcategories
+        puts "Here are some additional subcategories pertaining to that category:"
+        @subcategories = CharityRoulette::Category.all2
+        @subcategories.each.with_index(1) do |subcategory, i|
+            puts "#{i}. #{subcategory.name}"
+          end
+      end
+ 
+      def menu_2
+        input = nil
+        unless input == "exit"
+          puts "Enter the number of the subcategory you would like to explore:"
+          input = gets.strip.downcase
+    
+          if input.to_i > 0
+            the_subcategory = @subcategories[input.to_i - 1]
+            puts "#{the_subcategory.name}"
+          elsif input == "list"
+            list_subcategories
+          else
+            puts "Not sure what you want, type list or exit."
+          end
+        end
+      end
 
       def minimum_value
         puts "Please input a minimum dollar value:"
