@@ -39,7 +39,7 @@ class CharityRoulette::CLI
 
       def list_subcategories
         puts "Here are some additional subcategories pertaining to that category:"
-        @subcategories = CharityRoulette::Category.all2
+        @subcategories = CharityRoulette::Category.all
         @subcategories.each.with_index(1) do |subcategory, i|
             puts "#{i}. #{subcategory.name}"
           end

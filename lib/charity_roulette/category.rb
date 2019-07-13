@@ -12,6 +12,7 @@ class CharityRoulette::Category
         category.save
         end
         scrape_subcategories
+        scrape_charities
     end
 
     def save
@@ -25,33 +26,24 @@ class CharityRoulette::Category
     def self.scrape_subcategories
         self.all.each do |category| 
             sub_doc = Nokogiri::HTML(open(category.url))
-            sub_doc.search("strong").each do |strong|
+            sub_doc.search("td").search("strong").each do |strong|
                 subcategory = self.new
                 subcategory.name = strong.search("a").text
                 subcategory.url = "https://www.charitynavigator.org/#{strong.search("a").attr("href")}"
-        end
-    end
-    end
-
-    @@all2 = []
-
-    def save2
-        @@all2 << self
-    end
-
-    def self.all2
-        @@all2
-    end
-    
-    def self.scrape_charities
-        self.all.each do |category| 
-            charity_doc = Nokogiri::HTML(open(subcategory.url))
-            charity_doc.search("li.cn-search-hover-color").each do |li|
-                charity = self.new
-                charity.name = li.search("a").text
                 binding.pry
-            end
         end
+    end
+    end
+
+    def self.scrape_charities
+        self.all.each do |subcategory| 
+            charity_doc = Nokogiri::HTML(open(subcategory.url))
+            charity_doc.search("h3.charity-name-mobile").each do |element|
+                binding.pry
+                charity = self.new
+                charity.name = element.search("a").text
+        end
+    end
     end
 
 end
