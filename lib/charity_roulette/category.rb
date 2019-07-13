@@ -1,9 +1,9 @@
 class CharityRoulette::Category
     attr_accessor :name, :url
 
-    @@all = []
-    @@all2 = []
-    @@all3 = []
+    @@all_cat = []
+    @@all_sub = []
+    @@all_char = []
 
     def self.scrape_categories
         doc = Nokogiri::HTML(open("https://www.charitynavigator.org/index.cfm?bay=content.view&cpid=4529"))
@@ -16,11 +16,11 @@ class CharityRoulette::Category
     end
 
     def save
-        @@all << self
+        @@all_cat << self
     end
 
     def self.all
-        @@all
+        @@all_cat
     end
 
 
@@ -37,11 +37,11 @@ class CharityRoulette::Category
     end
 
     def save2
-        @@all2 << self
+        @@all_sub << self
     end
 
     def self.all2
-        @@all2
+        @@all_sub
     end
 
 
@@ -57,11 +57,11 @@ class CharityRoulette::Category
     end
 
     def save3
-        @@all3 << self
+        @@all_char << self.name
     end
 
     def self.all3
-        @@all3
+        @@all_char
     end
 
 end

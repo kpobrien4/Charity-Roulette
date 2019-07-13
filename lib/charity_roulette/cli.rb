@@ -112,7 +112,7 @@ class CharityRoulette::CLI
 
     
     def goodbye
-        puts "Thank you for playing!"
+        puts "Thank you for playing, go out and make a difference!"
     end
 
 end
