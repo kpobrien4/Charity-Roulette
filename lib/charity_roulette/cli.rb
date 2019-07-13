@@ -2,11 +2,13 @@ class CharityRoulette::CLI
 
     def call
         CharityRoulette::Category.scrape_categories
-        CharityRoulette::Subcategory.scrape_subcategories
+        CharityRoulette::Category.scrape_subcategories
+        CharityRoulette::Category.scrape_charities
         list_categories
         menu
         list_subcategories
         menu_2
+        charity_assigner
         minimum_value
         maximum_value
         range
@@ -40,7 +42,7 @@ class CharityRoulette::CLI
 
       def list_subcategories
         puts "Here are some additional subcategories pertaining to that category:"
-        @subcategories = CharityRoulette::Subcategory.all2
+        @subcategories = CharityRoulette::Category.all2
         @subcategories.each.with_index(1) do |subcategory, i|
             puts "#{i}. #{subcategory.name}"
           end
@@ -61,6 +63,12 @@ class CharityRoulette::CLI
             puts "Not sure what you want, type list or exit."
           end
         end
+      end
+
+      def charity_assigner
+        puts "Here is your assigned charity:"
+        @charities2 = CharityRoulette::Category.all3
+        puts @charities2.sample
       end
 
       def minimum_value
