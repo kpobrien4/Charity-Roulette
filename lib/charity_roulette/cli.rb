@@ -16,7 +16,7 @@ class CharityRoulette::CLI
     end
 
     def list_categories
-        puts "Here are some categories of charities to choose from:"
+        puts "Welcome to Charity Roulette! Here are some categories of charities to choose from:"
         @charities = CharityRoulette::Category.all
         @charities.each.with_index(1) do |category, i|
             puts "#{i}. #{category.name}"

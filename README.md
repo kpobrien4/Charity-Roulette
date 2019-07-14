@@ -1,8 +1,6 @@
-# CharityRoulette
+# Charity Roulette
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/charity_roulette`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem is an interactive program that randomly assigns a charity to the user based on a category of their choice. Once the user has been assigned a charity, they will be shown a random dollar amount from a custom user inputted range to donate. The user is not forced to donate, rather it is just for fun. The choice to donate is up to you!
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run ./bin/charity-roulette to execute the gem. From here you will be prompted to type in the number of a category from a provided list. Type in an integer value to move on to the subcategories. From the subcategories, you can choose one that interests you by typing another integer value pertaining to that subcategory. From here you will be randomly assigned a charity to which you can choose to donate. The program will then ask you to input a minimum dollar amount, which can be any integer, and a maximum dollar amount which can be any integer larger than the minimum. A random dollar amount will be assigned to you, which you can then choose to donate to your assigned charity. 
 
 ## Development
 
@@ -34,5 +32,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/<github username>/charity_roulette.
 
+##Author
+Kevin O'Brien
+
 ##License
-The gem is available as open source under the terms of the MIT License.
+The gem is available as open source under the terms of the MIT License - see the LICENSE.md file for details
